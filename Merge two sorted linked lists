@@ -1,0 +1,32 @@
+class Solution {
+    // Function to merge two sorted linked list.
+    Node sortedMerge(Node head1, Node head2) {
+        // This is a "method-only" submission.
+        // You only need to complete this method
+        Node node =new Node(0);
+        Node d=node;
+        while(head1!=null && head2!=null)
+        {
+            if(head1.data<=head2.data)
+            {
+                d.next=head1;
+                head1=head1.next;
+            }
+            else
+            {
+                d.next=head2;
+                head2=head2.next;
+            }
+            d=d.next;
+        }
+        if(head1!=null)
+        {
+            d.next=head1;
+        }
+        if(head2!=null)
+        {
+            d.next=head2;
+        }
+        return node.next;
+    }
+}
