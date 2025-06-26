@@ -1,0 +1,40 @@
+class Solution {
+    public int maxWater(int arr[]) {
+        // code here
+       int i=0;
+        int j=arr.length-1;
+        int rmax=0;
+        int lmax=0;
+        int total=0;
+        while(i<j)
+        {
+            if(arr[i]<arr[j])
+            {
+                if(lmax<=arr[i])
+                {
+                    lmax=arr[i];
+                }
+                else
+                {
+                   total=total+lmax-arr[i]; 
+                }
+                i++;
+            }
+            
+            else
+            {
+                if(arr[j]>=rmax)
+                {
+                    rmax=arr[j];
+                }
+                else
+                {
+                    total=total+rmax-arr[j];
+                }
+                j--;
+            }
+            
+        }
+        return total;
+    }
+}
